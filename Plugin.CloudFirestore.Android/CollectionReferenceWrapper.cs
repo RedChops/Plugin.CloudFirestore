@@ -257,7 +257,7 @@ namespace Plugin.CloudFirestore
 
         public void AddDocument(object data, CompletionHandler handler)
         {
-            _collectionReference.Add(data.ToNativeFieldValues())
+            _collectionReference.Add(data.ToNativeFieldValue())
                                 .AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
                                 {
                                     handler?.Invoke(task.IsSuccessful ? null : ExceptionMapper.Map(task.Exception));
@@ -268,7 +268,7 @@ namespace Plugin.CloudFirestore
         {
             var tcs = new TaskCompletionSource<bool>();
 
-            _collectionReference.Add(data.ToNativeFieldValues())
+            _collectionReference.Add(data.ToNativeFieldValue())
                                 .AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
                                 {
                                     if (task.IsSuccessful)

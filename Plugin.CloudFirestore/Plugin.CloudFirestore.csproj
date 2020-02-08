@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Plugin.CloudFirestore</PackageId>
+    <PackageVersion>2.0.1</PackageVersion>
+    <Authors>f-miyu</Authors>
+    <Description>Cross platform plugin for Firebase Cloud Firestore</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -10,7 +14,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
-    <PackageReference Include="System.Reactive" Version="4.0.0" />
   </ItemGroup>
   <Import Project="..\Plugin.CloudFirestore.Shared\Plugin.CloudFirestore.Shared.projitems" Label="Shared" Condition="Exists('..\Plugin.CloudFirestore.Shared\Plugin.CloudFirestore.Shared.projitems')" />
 </Project>

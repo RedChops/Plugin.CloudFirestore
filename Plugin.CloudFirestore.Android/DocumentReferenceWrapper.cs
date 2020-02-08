@@ -102,7 +102,7 @@ namespace Plugin.CloudFirestore
 
         public void SetData(object documentData, CompletionHandler handler)
         {
-            _documentReference.Set(documentData.ToNativeFieldValues()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 handler?.Invoke(task.IsSuccessful ? null : ExceptionMapper.Map(task.Exception));
             }));
@@ -112,7 +112,7 @@ namespace Plugin.CloudFirestore
         {
             var tcs = new TaskCompletionSource<bool>();
 
-            _documentReference.Set(documentData.ToNativeFieldValues()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 if (task.IsSuccessful)
                 {
@@ -129,7 +129,7 @@ namespace Plugin.CloudFirestore
 
         public void SetData(object documentData, CompletionHandler handler, params string[] mergeFields)
         {
-            _documentReference.Set(documentData.ToNativeFieldValues(), SetOptions.MergeFields(mergeFields)).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue(), SetOptions.MergeFields(mergeFields)).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 handler?.Invoke(task.IsSuccessful ? null : ExceptionMapper.Map(task.Exception));
             }));
@@ -137,7 +137,7 @@ namespace Plugin.CloudFirestore
 
         public void SetData(object documentData, CompletionHandler handler, params FieldPath[] mergeFields)
         {
-            _documentReference.Set(documentData.ToNativeFieldValues(), SetOptions.MergeFieldPaths(new JavaList<Firebase.Firestore.FieldPath>(mergeFields.Select(x => x.ToNative())))).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue(), SetOptions.MergeFieldPaths(new JavaList<Firebase.Firestore.FieldPath>(mergeFields.Select(x => x.ToNative())))).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 handler?.Invoke(task.IsSuccessful ? null : ExceptionMapper.Map(task.Exception));
             }));
@@ -147,7 +147,7 @@ namespace Plugin.CloudFirestore
         {
             var tcs = new TaskCompletionSource<bool>();
 
-            _documentReference.Set(documentData.ToNativeFieldValues(), SetOptions.MergeFields(mergeFields)).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue(), SetOptions.MergeFields(mergeFields)).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 if (task.IsSuccessful)
                 {
@@ -166,7 +166,7 @@ namespace Plugin.CloudFirestore
         {
             var tcs = new TaskCompletionSource<bool>();
 
-            _documentReference.Set(documentData.ToNativeFieldValues(), SetOptions.MergeFieldPaths(new JavaList<Firebase.Firestore.FieldPath>(mergeFields.Select(x => x.ToNative())))).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue(), SetOptions.MergeFieldPaths(new JavaList<Firebase.Firestore.FieldPath>(mergeFields.Select(x => x.ToNative())))).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 if (task.IsSuccessful)
                 {
@@ -189,7 +189,7 @@ namespace Plugin.CloudFirestore
                 return;
             }
 
-            _documentReference.Set(documentData.ToNativeFieldValues(), SetOptions.Merge()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue(), SetOptions.Merge()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 handler?.Invoke(task.IsSuccessful ? null : ExceptionMapper.Map(task.Exception));
             }));
@@ -204,7 +204,7 @@ namespace Plugin.CloudFirestore
 
             var tcs = new TaskCompletionSource<bool>();
 
-            _documentReference.Set(documentData.ToNativeFieldValues(), SetOptions.Merge()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
+            _documentReference.Set(documentData.ToNativeFieldValue(), SetOptions.Merge()).AddOnCompleteListener(new OnCompleteHandlerListener((task) =>
             {
                 if (task.IsSuccessful)
                 {

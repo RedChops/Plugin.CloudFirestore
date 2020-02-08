@@ -24,19 +24,19 @@ namespace Plugin.CloudFirestore
         public void SetData(IDocumentReference document, object documentData)
         {
             var wrapper = (DocumentReferenceWrapper)document;
-            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValues());
+            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValue());
         }
 
         public void SetData(IDocumentReference document, object documentData, params string[] mergeFields)
         {
             var wrapper = (DocumentReferenceWrapper)document;
-            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValues(), SetOptions.MergeFields(mergeFields));
+            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValue(), SetOptions.MergeFields(mergeFields));
         }
 
         public void SetData(IDocumentReference document, object documentData, params FieldPath[] mergeFields)
         {
             var wrapper = (DocumentReferenceWrapper)document;
-            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValues(), SetOptions.MergeFieldPaths(new JavaList<Firebase.Firestore.FieldPath>(mergeFields.Select(x => x.ToNative()))));
+            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValue(), SetOptions.MergeFieldPaths(new JavaList<Firebase.Firestore.FieldPath>(mergeFields.Select(x => x.ToNative()))));
         }
 
         public void SetData(IDocumentReference document, object documentData, bool merge)
@@ -48,7 +48,7 @@ namespace Plugin.CloudFirestore
             }
 
             var wrapper = (DocumentReferenceWrapper)document;
-            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValues(), SetOptions.Merge());
+            _transaction.Set((DocumentReference)wrapper, documentData.ToNativeFieldValue(), SetOptions.Merge());
         }
 
         public void UpdateData(IDocumentReference document, object fields)

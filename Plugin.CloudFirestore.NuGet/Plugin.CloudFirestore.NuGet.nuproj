@@ -7,7 +7,7 @@
     <ProjectGuid>{EAA1FAFD-5D9C-4F5E-A269-211835944DF2}</ProjectGuid>
     <Description>Cross platform plugin for Firebase Cloud Firestore</Description>
     <PackageId>Plugin.CloudFirestore</PackageId>
-    <PackageVersion>2.0.0</PackageVersion>
+    <PackageVersion>2.0.1</PackageVersion>
     <Authors>f-miyu</Authors>
     <DevelopmentDependency>false</DevelopmentDependency>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -15,7 +15,7 @@
     <RootNamespace>Plugin.CloudFirestore</RootNamespace>
     <UsePartialTypes>false</UsePartialTypes>
     <AssemblyName>Plugin.CloudFirestore.NuGet</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <PackageTags>xamarin, ios, android, xamarin.forms, plugin, cloudfirestore, firestore, firebase</PackageTags>
     <PackageProjectUrl>https://github.com/f-miyu/Plugin.CloudFirestore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/f-miyu/Plugin.CloudFirestore/blob/master/LICENSE</PackageLicenseUrl>
