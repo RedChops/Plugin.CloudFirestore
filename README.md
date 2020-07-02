@@ -2,7 +2,7 @@
 
 A cross platform plugin for Firebase Cloud Firestore. 
 A wrapper for [Xamarin.Firebase.iOS.CloudFirestore](https://www.nuget.org/packages/Xamarin.Firebase.iOS.CloudFirestore/) 
-and [Xamarin.Firebase.Firestore](Xamarin.Firebase.Firestore).
+and a binding library of firebase-firestore-19.0.2.
 
 ## Setup
 Install Nuget package to each projects.
@@ -18,11 +18,6 @@ Firebase.Core.App.Configure();
 
 ### Android
 * Add google-services.json to Android project. Select GoogleServicesJson as build action. (If you can't select GoogleServicesJson, reload this android project.)
-* Target Framework must be Android 9.0 (Pie). Multi-Dex needs to be enabled if you use other libraries, Xamarin.Forms etc.
-```xml
-<TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
-<AndroidEnableMultiDex>true</AndroidEnableMultiDex>
-```
 
 ## Usage
 ### Get
@@ -44,6 +39,13 @@ var query = await CrossCloudFirestore.Current
                                      .GetDocumentsAsync();
 
 var yourModels = query.ToObjects<YourModel>();
+
+var group = await CrossCloudFirestore.Current
+                                     .Instance
+                                     .GetCollectionGroup("yourcollection")
+                                     .GetDocumentsAsync();
+
+var yourModels = group.ToObjects<YourModel>();
 ```
 
 ### Filters
@@ -279,6 +281,8 @@ var data = new
     Date = FieldValue.ServerTimestamp,
     UnionArray = FieldValue.ArrayUnion(1, 2),
     RemovedArray = FieldValue.ArrayRemove(3, 4),
+    LongValue = FieldValue.Increment(1),
+    DoubleValue = FieldValue.Increment(2.5),
 };
 
 await CrossCloudFirestore.Current
@@ -323,7 +327,7 @@ await CrossCloudFirestore.Current
 | Array | System.Collections.IList |
 | Boolean | bool and bool? |
 | Byte | byte[] and Stream |
-| Date and time | DateTime, DateTimeOffset and these Nullable |
+| Date and time | DateTime, DateTimeOffset, Plugin.CloudFirestore.Timestamp and these Nullable |
 | Floating-point number | float, double, decimal and these Nullable |
 | Geographical point | Plugin.CloudFirestore.GeoPoint |
 | Integer | byte, sbyte, short, ushort, int, uint, long, ulong and these Nullable |
@@ -347,10 +351,10 @@ public class YourModel
     public string Text { get; set; }
     
     [ServerTimestamp(CanReplace = false)]
-    public DateTime CreatedAt { get; set; }
+    public Timestamp CreatedAt { get; set; }
 
     [ServerTimestamp]
-    public DateTime UpdatedAt { get; set; }
+    public Timestamp UpdatedAt { get; set; }
 }
 
 ```
