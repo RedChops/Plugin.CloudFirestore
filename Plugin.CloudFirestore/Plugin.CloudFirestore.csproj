@@ -7,7 +7,7 @@
         <PackageId>Plugin.CloudFirestore</PackageId>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
         <Version>3.1.0</Version>
-        <PackageVersion>3.1.0</PackageVersion>
+        <PackageVersion>3.1.0.3</PackageVersion>
         <PackOnBuild>true</PackOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <LangVersion>default</LangVersion>
@@ -27,6 +27,7 @@
         <Copyright>Copyright (c) 2018 f-miyu</Copyright>
         <DisableExtraReferences>true</DisableExtraReferences>
         <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
         <DebugSymbols>true</DebugSymbols>
@@ -45,22 +46,22 @@
     <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
         <Compile Include="Android\**\*.cs" />
         <PackageReference Include="System.Reactive" Version="4.3.2" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="71.1601.0" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="117.0.2-preview01" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Grpc.OkHttp" Version="1.21.1" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Grpc.Android" Version="1.21.1" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Grpc.Protobuf.Lite" Version="1.21.1" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Grpc.Stub" Version="1.21.1" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Io.OpenCensus.OpenCensusApi" Version="0.21.0" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.GooglePlayServices.Base" Version="71.1610.0" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="71.1620.0" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Base" Version="117.2.1-preview01" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="117.2.1-preview01" PrivateAssets="none" />
         <PackageReference Include="Square.OkHttp" Version="2.7.5.1" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.Firebase.Database.Collection" Version="71.1601.0" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.Firebase.ProtoliteWellKnownTypes" Version="71.1601.0" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.Firebase.Auth.Interop" Version="71.1601.0" PrivateAssets="none" />
-        <PackageReference Include="Xamarin.Firebase.Common" Version="71.1610.0" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.Firebase.Database.Collection" Version="117.0.1-preview01" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.Firebase.ProtoliteWellKnownTypes" Version="117.0.0-preview03" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.Firebase.Auth.Interop" Version="119.0.0-preview01" PrivateAssets="none" />
+        <PackageReference Include="Xamarin.Firebase.Common" Version="119.3.0-preview01" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Google.AutoValue.Annotations" Version="1.6.5" PrivateAssets="none" />
         <PackageReference Include="Xamarin.Google.Guava" Version="27.1.0" PrivateAssets="none" />
-        <ProjectReference Include="..\Bindings.Android\FirebaseFirestore.Binding\FirebaseFirestore.Binding.csproj" IncludeAssets="none" />
+        <PackageReference Include="Xamarin.Firebase.Firestore" Version="121.4.3-preview01" PrivateAssets="none" />
     </ItemGroup>
     <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
         <Compile Include="iOS\**\*.cs" />

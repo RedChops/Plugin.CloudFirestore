@@ -99,6 +99,10 @@
           <Project>{7AB339FD-5DDC-42B8-A412-FDCC40F04122}</Project>
           <Name>FirebaseFirestore.Binding</Name>
         </ProjectReference>
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.1.0" />
+        <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0" />
+        <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0" />
     </ItemGroup>
     <ItemGroup>
       <GoogleServicesJson Include="google-services.json" />
